@@ -1,0 +1,9 @@
+verison: 2
+
+models: 
+  - name: bikes_stats
+    columns: 
+      - name: station_id
+      - name: station_name
+      - name: available_docks
+      - name: available_bikes

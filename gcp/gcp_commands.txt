@@ -1,0 +1,17 @@
+#create pubsub topic
+gcloud pubsub topics create topic_name
+
+#Set up the notification for your GCS bucket
+gsutil notification create -t projects/project_id/topics/topic_name -f json gs://bucket_name
+
+
+#Grant GCS permission to publish to the Pub/Sub topic:
+gcloud pubsub topics add-iam-policy-binding gcs-notifications \
+  --member=serviceAccount:project_id@gs-project-accounts.iam.gserviceaccount.com \
+  --role=roles/pubsub.publisher
+
+#deploy the cloud function
+gcloud functions deploy function_name \
+    --runtime python39 \
+    --trigger-topic topic_name \
+    --project project_id

@@ -73,8 +73,8 @@ window_duration = "1 minutes"
 data_to_stream = df_result.withWatermark("timestamp", window_duration)
 query = data_to_stream.writeStream\
         .trigger(processingTime=window_duration)\
-        .option("checkpointLocation", "gs://spotify_data_rg_01/checkpoint")\
-        .option("path", "gs://spotify_data_rg_01/bikes")\
+        .option("checkpointLocation", "gs://bikes_data_rg_01/checkpoint")\
+        .option("path", "gs://bikes_data_rg_01/bikes")\
         .outputMode("append")\
         .start()\
         .awaitTermination()

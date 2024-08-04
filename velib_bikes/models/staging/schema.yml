@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: velib_bikes
+    tables:
+      - name: bikes_availibilities4
+        description: "Bikes availibilities"
+        columns:
+          - name: stationcode
+          - name: name
+          - name: capacity
+          - name: numdocksavailable
+          - name: numbikesavailable
+          - name: mechanical
+          - name: ebike
+          - name: duedate
+          - name: is_renting
+          - name: is_returning
